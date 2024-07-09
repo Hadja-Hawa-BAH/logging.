@@ -1,6 +1,5 @@
 package fr.afpa.logs;
 
-
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import org.apache.logging.log4j.LogManager;
@@ -17,7 +16,7 @@ Vous pourrez vous aider du PDF disponible sur pour obtenir des informations sur 
 
 public class Employee {
 
-    private static final Logger logger = LogManager.getLogger(Employee.class);
+	private static final Logger logger = LogManager.getLogger(Employee.class);
 
 	// les attributs comme présenté dans le PDF
 
@@ -38,7 +37,7 @@ public class Employee {
 		this.birthDate = LocalDate.parse(birthDate);
 	}
 
-	//Getters et les setters
+	// Getters et les setters
 	public String getRegistrationNumber() {
 		return registrationNumber;
 	}
@@ -70,9 +69,9 @@ public class Employee {
 			this.registrationNumber = registrationNumber;
 
 		} else {
-            String errorMessage = "Le matricule doit avoir le format suivant: nnXXXnn où n est un chiffre et X un caractère alphabétique (par exemple:11ABC22)";
+			String errorMessage = "Le matricule doit avoir le format suivant: nnXXXnn où n est un chiffre et X un caractère alphabétique (par exemple:11ABC22)";
 			logger.error(errorMessage);
-            throw new Exception(errorMessage);
+			throw new Exception(errorMessage);
 		}
 
 	}
@@ -203,17 +202,17 @@ public class Employee {
 
 		for (int i = 0; i < inputToCheck.length(); i++) {
 			char ch = inputToCheck.charAt(i);
-			if (i == 0 || i == 1 || i == 2 || i == 3 || i == 5 || i == 6 || i == 8 || i == 9){
-				if (Character.isDigit(ch)){
+			if (i == 0 || i == 1 || i == 2 || i == 3 || i == 5 || i == 6 || i == 8 || i == 9) {
+				if (Character.isDigit(ch)) {
 					isBirthdate = true;
 
 				} else {
 					return false;
 				}
-			
+
 			} else {
-		    	if((i == 4 || i == 7) && ch == '-') {
-			 		isBirthdate = true;
+				if ((i == 4 || i == 7) && ch == '-') {
+					isBirthdate = true;
 
 				} else {
 					return false;
@@ -225,7 +224,3 @@ public class Employee {
 	}
 
 }
-
-
-    
-
